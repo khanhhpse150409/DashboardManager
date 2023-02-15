@@ -1,7 +1,8 @@
 import './App.css';
-import Dashboard from './components/dashboard/index'
-import Login from './components/googleSignin/login';
-import { Container } from 'react-bootstrap';
+// import Dashboard from './components/dashboard/index'
+// import Login from './components/googleSignin/login';
+import Login from './components/login';
+// import { Container } from 'react-bootstrap';
 
 function App() {
   return ( 
