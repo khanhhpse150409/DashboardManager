@@ -1,18 +1,24 @@
 import './App.css';
-// import Dashboard from './components/dashboard/index'
-// import Login from './components/googleSignin/login';
-import Login from './components/login';
-// import { Container } from 'react-bootstrap';
+import { BrowserRouter as Router, Routes, Route , Link} from "react-router-dom";
+import Home from './pages/Home/index';
+import Login from './pages/login/index';
+import Dashboard from './components/dashboard';
+
 
 function App() {
-  return ( 
-    // <Container className="d-flex align-item-center justify-content-center"
-    // style={{minHeight: "100vh" }}>
-    //   <div className='w-100' style={{maxWidth: "400px"}}>
-        <Login />
-    //     </div>
-    // </Container>
-    // <Dashboard/>
+
+  return (
+    <Router>
+      <nav>
+        <Link to="/"></Link>
+        <Link to="/"></Link>
+        <Link to="/"></Link>
+      </nav>
+      <Routes>
+        <Route path="/" element={<Login />}/>
+      </Routes>
+    </Router> 
+        
   );
 }
 export default App;

@@ -6,7 +6,7 @@ const defaultProps = {
         routes: [
             {
                 path: '/welcome',
-                name: 'Welcome',
+                name: 'WelcomeHomepage',
                 icon: <SmileFilled />,
                 component: './Welcome',
             },
@@ -19,7 +19,7 @@ const defaultProps = {
                 routes: [
                     {
                         path: '/admin/sub-page1',
-                        name: 'List Students',
+                        name: 'First page',
                         icon: 'https://gw.alipayobjects.com/zos/antfincdn/upvrAjAPQX/Logo_Tech%252520UI.svg',
                         component: './Welcome',
                     },
