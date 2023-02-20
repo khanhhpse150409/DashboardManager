@@ -16,6 +16,7 @@ function App() {
       </nav>
       <Routes>
         <Route path="/" element={<Login />}/>
+        <Route path="/Dashboard" element={<Dashboard />}/>
       </Routes>
     </Router> 
         

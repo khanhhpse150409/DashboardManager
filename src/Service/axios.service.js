@@ -6,6 +6,56 @@
 // // //   set_spinner_start,
 // // // } from "../redux/action/spinnerAction";
 // import localStorageServ from "./locaStorage.service";
+import firebase from 'firebase/app';
+import 'firebase/auth';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import Dashboard from '../components/dashboard';
+
+firebase.auth().signInWithEmailAndPassword()
+  .then(userCredential => {
+    return userCredential.user.getIdToken();
+  })
+  .then(idToken => {
+    localStorage.setItem('idToken', idToken);
+    // redirect to home page or do something else
+  })
+  .catch(error => {
+    // handle error
+  });
+
+  const withAuthorization = (Component, allowedRoles) => {
+    return () => {
+      const [userRole, setUserRole] = useState(null);
+      
+      useEffect(() => {
+        const idToken = localStorage.getItem('idToken');
+        axios.get('/api/check-role', { headers: { 
+            Authorization: `Bearer ${idToken}` } })
+          
+            .then(response => {
+            const role = response.data.role;
+            
+            if (allowedRoles.includes(role)) {
+              setUserRole(role);
+            } else {
+              setUserRole('unauthorized');
+            }
+          })
+          .catch(error => {
+            setUserRole('unauthorized');
+          });
+      }, []);
+      if (userRole === null) {
+        return <div>Loading...</div>;
+      } else if (userRole === 'unauthorized') {
+        return <div>Unauthorized</div>;
+      } else {
+        return <Dashboard />;
+      }
+    };
+  };
+  export default withAuthorization;
 
 // class AxiosService {
 //   axios;

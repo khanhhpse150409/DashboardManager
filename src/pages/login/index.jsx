@@ -15,12 +15,16 @@ import {
   import { auth, provider } from "./config";
   import {signInWithPopup} from "firebase/auth";
   import React, {useState, useEffect} from "react";
+  import Axios from "axios";
   // import { useNavigate } from 'react-router-dom';
   // import { userAction } from '../../store';
   // import { useDispatch, useSelector } from 'react-redux';
   // import { isEqual } from 'lodash';
   import Dashboard from "../../components/dashboard";
-  
+  import firebase from 'firebase/app';
+  import 'firebase/auth';
+  import { authService } from "../../Service/authService";
+  import { useNavigate } from "react-router-dom";
   const iconStyles = {
     marginInlineStart: '16px',
     color: 'rgba(0, 0, 0, 0.2)',
@@ -29,37 +33,33 @@ import {
     cursor: 'pointer',
   };
   
-  
+  // const Authorization = "eyJhbGciOiJSUzI1NiIsImtpZCI6ImFlYjMxMjdiMjRjZTg2MDJjODEyNDUxZThmZTczZDU4MjkyMDg4N2MiLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoiVmnDqm4gTmd1eeG7hW4gVGhhbmgiLCJwaWN0dXJlIjoiaHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUVkRlRwNXB6TXVocmlqVGZZakdxb19mazVTdjJCT2NReGNQSXhjWjhlMHRPUT1zOTYtYyIsImlzcyI6Imh0dHBzOi8vc2VjdXJldG9rZW4uZ29vZ2xlLmNvbS9yZWFjdC1hdXRoLWJjMGE0IiwiYXVkIjoicmVhY3QtYXV0aC1iYzBhNCIsImF1dGhfdGltZSI6MTY3NjcwMTE5MSwidXNlcl9pZCI6ImRVdXp2WWRZVm1YUk1EblpCNVBrOXlaRXg4MzMiLCJzdWIiOiJkVXV6dllkWVZtWFJNRG5aQjVQazl5WkV4ODMzIiwiaWF0IjoxNjc2NzAxMTkxLCJleHAiOjE2NzY3MDQ3OTEsImVtYWlsIjoidGhhbmh2aWVubmd1eWVuMDFAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZ29vZ2xlLmNvbSI6WyIxMTc3NDI5NzMzMDMxMTc0OTQ0ODEiXSwiZW1haWwiOlsidGhhbmh2aWVubmd1eWVuMDFAZ21haWwuY29tIl19LCJzaWduX2luX3Byb3ZpZGVyIjoiZ29vZ2xlLmNvbSJ9fQ.BNaTuZj_AaseocQK0qHLOw6gB1UhzTsPPV5Df1FGLoS529Ge7aizSfhLMzH7Tjq6KPXwybsttLrnImh_YKESRA0AcKz7LcuBzq14xx-_e88TwRv3Kge8IRfNwVqMRUg7IXYJNDtvZG8m4eEQvIB7kXV1Fscd8tgicG4HDXrBJb-LnhlzJfLRgVc6nYVEPgiSbFPsgcafpyzvj3U_5f6_MWf1ETLx0LSv39g1hBWRHVS4VkzjT2WN32KlrHDoQOBTW6UgMBch62YHO9wZx33eZjUCkm2KI1Zn79zXGen26RM_holM6_hIgfMbGMnk1C_2mNAuNXHW5Qk7vUR10lWSEw"
   const Login = () => {
-    // const dispatch = useDispatch();
-    // const [loading, setLoading] = useState(false);
-    // const { userInfor } = useSelector(state => state.userReducer, (prev, next) => isEqual(prev, next));
-    // const navigate = useNavigate();
     const [value, setValue] = useState('')
-    
-    // const onFinish = (values) => {
-    //   dispatch(userAction.LoginAction({
-    //     data: values,
-    //     onAction: setLoading,
-    //   }));
-    // };
-
-
-    const signWithGoogle = () => {
-      signInWithPopup(auth, provider).then((data) => {
-      setValue(data.user.email)
-      localStorage.setItem("email", data.user.email)
-    })
+    const navigate = useNavigate();
+      const signWithGoogle = async () => {
+        // signInWithPopup(auth, provider).then((data) => {
+        // localStorage.setItem("email", data.user.email)
+        
+        try {
+          const token = await authService.loginWithGoogle();         
+          console.log(token);
+          navigate("/Dashboard"); 
+        } catch (error) {
+          console.error(error);
+        }
+  
     }
     
     useEffect(() => {
-    setValue(localStorage.getItem('email'))
+    setValue(localStorage.getItem('student'))
+    
     })
     
     return (
       <>
       <ProConfigProvider hashed={false}>
-      {value?<Dashboard/>:
+      {/* {value?<Dashboard/>: */}
         <div style={{ backgroundColor: 'white' }}>
           <LoginForm
             logo="https://github.githubassets.com/images/modules/logos_page/Octocat.png"
@@ -112,19 +112,21 @@ import {
               <ProFormCheckbox noStyle name="autoLogin">
                 Nhớ mật khấu
               </ProFormCheckbox>
-              <button onClick={signWithGoogle}style={{float: 'right',}}
+              
+              <button onClick={signWithGoogle} style={{float: 'right',}}
               >
                 Signin With Google
               </button>
             </div>
           </LoginForm>
         </div>
-          }
+          {/* } */}
       </ProConfigProvider>
       </>
   
     );
-  };
+        }
+
   export default Login
 
 // import React, { useEffect } from "react";
@@ -223,5 +225,3 @@ import {
 // };
 
 // export default Login;
-
-  
