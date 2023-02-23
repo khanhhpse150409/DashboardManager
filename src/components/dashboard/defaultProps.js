@@ -18,9 +18,9 @@ const defaultProps = {
                 component: './Admin',
                 routes: [
                     {
-                        path: '/admin/sub-page1',
-                        name: 'List Students',
-                        icon: 'https://gw.alipayobjects.com/zos/antfincdn/upvrAjAPQX/Logo_Tech%252520UI.svg',
+                        path: '/userList',
+                        name: 'Student Management',
+                        icon: <TabletFilled/>,
                         component: './Welcome',
                     },
                     {
