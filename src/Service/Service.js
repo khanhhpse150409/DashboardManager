@@ -5,11 +5,26 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import Dashboard from "../components/dashboard";
 
+export const REACT_APP_API_URL = process.env.REACT_APP_API_URL;
+
 export const ABORT_MESSAGE = "canceled";
 
-const idToken =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdHVkZW50X2lkIjoidU1sakRSa2hNMFhWam5WcDVRS2p1UjhEaXU0MiIsImVtYWlsIjoidmllbm5ndXllbkBjb2lubWFwLnRlY2giLCJyb2xlX25hbWUiOiJBZG1pbiIsImlhdCI6MTY3NzE1ODA0MywiZXhwIjoxNjc3MTYxNjQzfQ.O2op1Iik6qB3d6wISeQCev2YPn-87of7lAK9liH4_VI";
+export const GATEWAY = {
+  REACT_APP_API_URL: 'REACT_APP_API_URL',
+};
 
+const idToken = localStorage.getItem('access_token').substring(7);
+
+const getGateway = (gw) => {
+  switch (gw) {
+    case GATEWAY.REACT_APP_API_URL: {
+      return REACT_APP_API_URL;
+    }
+    default: {
+      return REACT_APP_API_URL;
+    }
+  }
+};
 export const loginGoogle = (token, allowedRoles) => {
   console.log(token);
 
@@ -67,7 +82,7 @@ export const loginGoogle = (token, allowedRoles) => {
 export const get =
   ({ options, headers, gw }) =>
   (url) => {
-    return fetch(`https://capstone-matching.herokuapp.com${url}`, {
+    return fetch(`${getGateway(gw)}${url}`, {
       headers: {
         Authorization: `Bearer ${idToken}`,
       },

@@ -92,7 +92,7 @@ import { Button } from 'antd';
               }}
             >
               <ProFormCheckbox noStyle name="autoLogin">
-                Nhớ mật khấu
+                Nhớ mật khẩu
               </ProFormCheckbox>
 
               <Button onClick={signWithGoogle} style={{ float: "right" }}>

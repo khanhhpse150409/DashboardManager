@@ -59,7 +59,6 @@ const ListStudent = () => {
   const fetchListDataStudent = () => {
     listStudent()
       .then((payload) => {
-        console.log("payload", payload);
         setListDataStudent(payload.students.rows);
       })
       .catch((err) => {

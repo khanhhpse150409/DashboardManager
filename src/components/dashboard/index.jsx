@@ -33,7 +33,6 @@ const Dashboard = () => {
   };
   const [settings, setSetting] = useState({ fixSiderbar: true });
   const [pathname, setPathname] = useState("/welcome");
-  console.log("pathname welcome", pathname);
   return (
     <div
       id="test-pro-layout"
