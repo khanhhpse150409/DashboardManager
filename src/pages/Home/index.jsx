@@ -3,6 +3,8 @@ import { ProLayout, PageContainer, SettingDrawer } from '@ant-design/pro-compone
 import { Button, Descriptions, Result, Space, Statistic } from 'antd';
 import { useState } from 'react';
 import defaultProps from './defaultProps';
+import { useNavigate } from 'react-router-dom';
+
 const content = (<Descriptions size="small" column={2}>
     <Descriptions.Item label="Founder">Zhang San</Descriptions.Item>
     <Descriptions.Item label="Contact information">
@@ -12,8 +14,11 @@ const content = (<Descriptions size="small" column={2}>
     <Descriptions.Item label="Update time">2017-10-10</Descriptions.Item>
     <Descriptions.Item label="Remark">Gucui Road, West Lake District, Hangzhou City, Zhejiang Province, China</Descriptions.Item>
   </Descriptions>);
+
 const Home = () => {
+  const navigate = useNavigate();
     const logout = () => {
+      navigate('/');
       localStorage.clear();
       window.loaction.reload();
     }

@@ -29,20 +29,22 @@ import {
   const Login = () => {
     const [value, setValue] = useState('')
     const navigate = useNavigate();
-      const signWithGoogle = async () => {
-
-          const token = await authService.loginWithGoogle();
+      
+    const signWithGoogle = async () => {
+          await authService.loginWithGoogle();
           const role = localStorage.getItem("student");
          if (role === "Admin") {
           navigate("/Dashboard"); 
         } else {
+          navigate("/Home"); 
           console.log("Tôi là user");
+          
         }
     }
     
     useEffect(() => {
-    setValue(localStorage.getItem('student'))
-    
+      localStorage.clear();
+      window.loaction.reload();
     })
     
     return (

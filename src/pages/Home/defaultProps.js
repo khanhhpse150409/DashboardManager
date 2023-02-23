@@ -12,7 +12,7 @@ const defaultProps = {
             },
             {
                 path: '/admin',
-                name: 'Management page',
+                name: ' page',
                 icon: <CrownFilled />,
                 access: 'canAdmin',
                 component: './Admin',
