@@ -13,41 +13,45 @@ import {
 } from "@ant-design/pro-components";
 import { Button } from 'antd';
 
-import React, { useState, useEffect } from "react";
-import Dashboard from "../../components/dashboard";
-import firebase from "firebase/app";
-import "firebase/auth";
-import { authService } from "../../Service/authService";
-import { useNavigate } from "react-router-dom";
-const iconStyles = {
-  marginInlineStart: "16px",
-  color: "rgba(0, 0, 0, 0.2)",
-  fontSize: "24px",
-  verticalAlign: "middle",
-  cursor: "pointer",
-};
-
-const Login = () => {
-  const [value, setValue] = useState("");
-  const navigate = useNavigate();
-  const signWithGoogle = async () => {
-    const token = await authService.loginWithGoogle();
-    const role = localStorage.getItem("student");
-    if (role === "Admin") {
-      navigate("/Dashboard");
-    } else {
-      console.log("Tôi là user");
-    }
+  import React, {useState, useEffect} from "react";
+  import Dashboard from "../../components/dashboard";
+  import firebase from 'firebase/app';
+  import 'firebase/auth';
+  import { authService } from "../../Service/authService";
+  import { useNavigate } from "react-router-dom";
+  const iconStyles = {
+    marginInlineStart: '16px',
+    color: 'rgba(0, 0, 0, 0.2)',
+    fontSize: '24px',
+    verticalAlign: 'middle',
+    cursor: 'pointer',
   };
-
-  useEffect(() => {
-    setValue(localStorage.getItem("student"));
-  });
-
-  return (
-    <>
-      <ProConfigProvider>
-        <div>
+  
+  const Login = () => {
+    const [value, setValue] = useState('')
+    const navigate = useNavigate();
+      
+    const signWithGoogle = async () => {
+          await authService.loginWithGoogle();
+          const role = localStorage.getItem("student");
+         if (role === "Admin") {
+          navigate("/Dashboard"); 
+        } else {
+          navigate("/Home"); 
+          console.log("Tôi là user");
+          
+        }
+    }
+    
+    useEffect(() => {
+      localStorage.clear();
+      // window.loaction.reload();
+    })
+    
+    return (
+      <>
+      <ProConfigProvider hashed={false}>
+        <div style={{ backgroundColor: 'white' }}>
           <LoginForm
             submitText="Đăng nhập"
             logo="https://github.githubassets.com/images/modules/logos_page/Octocat.png"

@@ -1,23 +1,11 @@
 import { Row, Col, Table, Tag, ConfigProvider, Space } from "antd";
 import { listStudent, listStudentTest } from "./fetcher";
 import { useState, useEffect } from "react";
-import { format as formatFns } from "date-fns";
 
 const STATUS_COLORS = {
   active: "#31AFFE",
   deactive: "#616887",
 };
-
-const compare = (a, b, key) => {
-  if (a[key] === b[key]) return 0;
-  if (a[key] === undefined) return -1;
-  if (b[key] === undefined) return 1;
-  return Number(a[key]) - Number(b[key]);
-};
-
-const invalidValue = (value) => [null, undefined, ""].includes(value);
-
-const formatDateTime = (value) => formatFns(value, "hh:mm dd/MM/yyyy");
 
 const createColumns = [
   {
