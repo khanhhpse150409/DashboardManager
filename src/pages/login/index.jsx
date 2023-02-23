@@ -44,7 +44,7 @@ import {
     
     useEffect(() => {
       localStorage.clear();
-      window.loaction.reload();
+      // window.loaction.reload();
     })
     
     return (
