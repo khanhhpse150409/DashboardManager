@@ -5,16 +5,17 @@ import { useState } from 'react';
 import defaultProps from './defaultProps';
 import { loginGoogle } from "../../Service/Service";
 import { useNavigate } from 'react-router-dom';
+import ListStudent from '../student/listStudent';
 const Authorization = "eyJhbGciOiJSUzI1NiIsImtpZCI6ImFlYjMxMjdiMjRjZTg2MDJjODEyNDUxZThmZTczZDU4MjkyMDg4N2MiLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoiVmnDqm4gTmd1eeG7hW4gVGhhbmgiLCJwaWN0dXJlIjoiaHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUVkRlRwNXB6TXVocmlqVGZZakdxb19mazVTdjJCT2NReGNQSXhjWjhlMHRPUT1zOTYtYyIsImlzcyI6Imh0dHBzOi8vc2VjdXJldG9rZW4uZ29vZ2xlLmNvbS9yZWFjdC1hdXRoLWJjMGE0IiwiYXVkIjoicmVhY3QtYXV0aC1iYzBhNCIsImF1dGhfdGltZSI6MTY3NjcwMTE5MSwidXNlcl9pZCI6ImRVdXp2WWRZVm1YUk1EblpCNVBrOXlaRXg4MzMiLCJzdWIiOiJkVXV6dllkWVZtWFJNRG5aQjVQazl5WkV4ODMzIiwiaWF0IjoxNjc2NzAxMTkxLCJleHAiOjE2NzY3MDQ3OTEsImVtYWlsIjoidGhhbmh2aWVubmd1eWVuMDFAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZ29vZ2xlLmNvbSI6WyIxMTc3NDI5NzMzMDMxMTc0OTQ0ODEiXSwiZW1haWwiOlsidGhhbmh2aWVubmd1eWVuMDFAZ21haWwuY29tIl19LCJzaWduX2luX3Byb3ZpZGVyIjoiZ29vZ2xlLmNvbSJ9fQ.BNaTuZj_AaseocQK0qHLOw6gB1UhzTsPPV5Df1FGLoS529Ge7aizSfhLMzH7Tjq6KPXwybsttLrnImh_YKESRA0AcKz7LcuBzq14xx-_e88TwRv3Kge8IRfNwVqMRUg7IXYJNDtvZG8m4eEQvIB7kXV1Fscd8tgicG4HDXrBJb-LnhlzJfLRgVc6nYVEPgiSbFPsgcafpyzvj3U_5f6_MWf1ETLx0LSv39g1hBWRHVS4VkzjT2WN32KlrHDoQOBTW6UgMBch62YHO9wZx33eZjUCkm2KI1Zn79zXGen26RM_holM6_hIgfMbGMnk1C_2mNAuNXHW5Qk7vUR10lWSEw"
 
 const content = (<Descriptions size="small" column={2}>
-    <Descriptions.Item label="Founder">Zhang San</Descriptions.Item>
+    <Descriptions.Item label="Team">SWD</Descriptions.Item>
     <Descriptions.Item label="Contact information">
-      <a>421421</a>
+      <a>0914730992</a>
     </Descriptions.Item>
-    <Descriptions.Item label="Creation time">2017-01-10</Descriptions.Item>
-    <Descriptions.Item label="Update time">2017-10-10</Descriptions.Item>
-    <Descriptions.Item label="Remark">Gucui Road, West Lake District, Hangzhou City, Zhejiang Province, China</Descriptions.Item>
+    <Descriptions.Item label="Creation time">2023-02-02</Descriptions.Item>
+    <Descriptions.Item label="Update time">2023-23-02</Descriptions.Item>
+    <Descriptions.Item label="Remark">Lô E2a-7, Đường D1, Đ. D1, Long Thạnh Mỹ, Thành Phố Thủ Đức, Thành phố Hồ Chí Minh 700000</Descriptions.Item>
   </Descriptions>);
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -32,6 +33,7 @@ const Dashboard = () => {
             pathname,
         }} waterMarkProps={{
             content: 'Pro Layout',
+            fontSize: '0'
         }} menuFooterRender={(props) => {
             return (<a style={{
                     lineHeight: '48rpx',
@@ -81,7 +83,7 @@ const Dashboard = () => {
               Submit
             </Button>,
         ]}>
-          <div style={{
+          {/* <div style={{
             height: '120vh',
             minHeight: 600,
         }}>
@@ -89,7 +91,8 @@ const Dashboard = () => {
             height: '100%',
             background: '#fff',
         }} title="Hello World" subTitle="Sorry, you are not authorized to access this page." extra={<Button type="primary">Back Home</Button>}/>
-          </div>
+          </div> */}
+          <ListStudent />
         </PageContainer>
       </ProLayout>
       <SettingDrawer pathname={pathname} getContainer={() => document.getElementById('test-pro-layout')} settings={settings} onSettingChange={(changeSetting) => {
