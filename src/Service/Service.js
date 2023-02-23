@@ -8,7 +8,7 @@ import Dashboard from "../components/dashboard";
 export const ABORT_MESSAGE = "canceled";
 
 const idToken =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdHVkZW50X2lkIjoidU1sakRSa2hNMFhWam5WcDVRS2p1UjhEaXU0MiIsImVtYWlsIjoidmllbm5ndXllbkBjb2lubWFwLnRlY2giLCJyb2xlX25hbWUiOiJBZG1pbiIsImlhdCI6MTY3NzEzNjM5NiwiZXhwIjoxNjc3MTM5OTk2fQ.kZ2L6aZZR2yxJ52Y0lMyZpbUKSQRym8U288veJK8FvE";
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdHVkZW50X2lkIjoidU1sakRSa2hNMFhWam5WcDVRS2p1UjhEaXU0MiIsImVtYWlsIjoidmllbm5ndXllbkBjb2lubWFwLnRlY2giLCJyb2xlX25hbWUiOiJBZG1pbiIsImlhdCI6MTY3NzE1ODA0MywiZXhwIjoxNjc3MTYxNjQzfQ.O2op1Iik6qB3d6wISeQCev2YPn-87of7lAK9liH4_VI";
 
 export const loginGoogle = (token, allowedRoles) => {
   console.log(token);
