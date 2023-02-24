@@ -4,7 +4,6 @@ import Home from "../home";
 import { useState, useEffect } from "react";
 
 const Container = ({ pathname }) => {
-  console.log("pathname contains ", pathname);
   const [component, setComponent] = useState(null);
   const setPathName = () => {
     switch (pathname) {
