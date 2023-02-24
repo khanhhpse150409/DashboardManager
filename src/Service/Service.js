@@ -1,6 +1,3 @@
-// // export { default as localStorageServ } from './locaStorage.service';
-// export { default as AxiosServ } from './axios.service';
-// // export * as httpServ from './http.service/http.service';import axios from "axios";
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import Dashboard from "../components/dashboard";
@@ -10,11 +7,8 @@ export const REACT_APP_API_URL = process.env.REACT_APP_API_URL;
 export const ABORT_MESSAGE = "canceled";
 
 export const GATEWAY = {
-  REACT_APP_API_URL: 'REACT_APP_API_URL',
+  REACT_APP_API_URL: "REACT_APP_API_URL",
 };
-
-const idToken = localStorage.getItem('access_token').substring(7);
-
 const getGateway = (gw) => {
   switch (gw) {
     case GATEWAY.REACT_APP_API_URL: {
@@ -25,9 +19,14 @@ const getGateway = (gw) => {
     }
   }
 };
-export const loginGoogle = (token, allowedRoles) => {
-  console.log(token);
+let idToken = "";
+const token = localStorage.getItem("access_token");
 
+if (token) {
+  idToken = token.substring(7)
+}
+
+export const loginGoogle = (token, allowedRoles) => {
   return () => {
     const [userRole, setUserRole] = useState(null);
 
