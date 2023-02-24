@@ -1,8 +1,7 @@
 import './App.css';
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Home from './pages/Home/index';
-import Login from './pages/login/index';
-import Dashboard from './components/dashboard';
+import LoginPage from './pages/login';
 import PrivateRoute from './components/dashboard/PrivateRoute';
 
 
@@ -12,9 +11,9 @@ function App() {
     <Router>
       <Routes>
         <Route element={<PrivateRoute/>}>
-            <Route element={<Dashboard/>} path="/dashboard" exact/>
+            <Route element={<Home/>} path="/dashboard" exact/>
         </Route>
-        <Route path="/" element={<Login />}/>
+        <Route path="/" element={<LoginPage />}/>
       </Routes>
     </Router> 
     // <Router>
