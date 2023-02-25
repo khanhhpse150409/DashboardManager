@@ -1,9 +1,4 @@
-import {
-  ChromeFilled,
-  CrownFilled,
-  SmileFilled,
-  TabletFilled,
-} from "@ant-design/icons";
+import { CrownFilled, SmileFilled, TabletFilled } from "@ant-design/icons";
 
 const defaultProps = {
   route: {
@@ -24,14 +19,8 @@ const defaultProps = {
         routes: [
           {
             path: "/admin/student",
-            name: "List Students",
-            icon: "https://gw.alipayobjects.com/zos/antfincdn/upvrAjAPQX/Logo_Tech%252520UI.svg",
-            component: "./Welcome",
-          },
-          {
-            path: "/userList",
             name: "Student Management",
-            icon: <TabletFilled />,
+            icon: "https://gw.alipayobjects.com/zos/antfincdn/upvrAjAPQX/Logo_Tech%252520UI.svg",
             component: "./Welcome",
           },
           {

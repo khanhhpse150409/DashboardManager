@@ -1,10 +1,11 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import { LikeOutlined, UserOutlined } from "@ant-design/icons";
 import {
   ProLayout,
   PageContainer,
   SettingDrawer,
 } from "@ant-design/pro-components";
-import { Button, Descriptions, Result, Space, Statistic } from "antd";
+import { Button, Descriptions, Space, Statistic } from "antd";
 import { useState } from "react";
 import defaultProps from "./defaultProps";
 import { useNavigate } from "react-router-dom";
@@ -14,7 +15,7 @@ const content = (
   <Descriptions size="small" column={2}>
     <Descriptions.Item label="Team">SWD</Descriptions.Item>
     <Descriptions.Item label="Contact information">
-      <a>0914730992</a>
+      0914730992
     </Descriptions.Item>
     <Descriptions.Item label="Creation time">2023-02-02</Descriptions.Item>
     <Descriptions.Item label="Update time">2023-23-02</Descriptions.Item>
@@ -33,6 +34,20 @@ const Dashboard = () => {
   };
   const [settings, setSetting] = useState({ fixSiderbar: true });
   const [pathname, setPathname] = useState("/welcome");
+  function reloadPageOnce() {
+    const hasReloaded = localStorage.getItem("hasReloaded");
+
+    if (!hasReloaded) {
+      localStorage.setItem("hasReloaded", "true");
+      setTimeout(() => {
+        window.location.reload();
+      }, 50);
+    }
+  }
+
+  // Gọi hàm reloadPageOnce khi mở trang
+  reloadPageOnce();
+
   return (
     <div
       id="test-pro-layout"
@@ -119,7 +134,6 @@ const Dashboard = () => {
             </Button>,
           ]}
         >
-          {/* <ListStudent /> */}
           <Container pathname={pathname} />
         </PageContainer>
       </ProLayout>
