@@ -115,6 +115,7 @@ const ManagerStudent = () => {
     listStudent()
       .then((payload) => {
         setListDataStudent(payload.students.rows);
+        console.log(payload.students.rows);
       })
       .catch((err) => {
         console.log("err", err);

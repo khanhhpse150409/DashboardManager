@@ -40,20 +40,3 @@ export const authService = {
     }
   },
 };
-
-        // const role = localStorage.getItem("student");
-        // if (role === "Admin") {
-        //   return (
-        //     <Router>
-        //       {console.log("Tôi là admin")}
-        //       <Routes>
-        //       <Link to="/Dashboard">Go to Dashboard</Link>
-        //         <Route exact path="/Dashboard">
-        //         <Dashboard />
-        //         </Route>
-        //       </Routes>
-        //     </Router>
-        //   );
-        // } else {
-        //   console.log("Tôi là user");
-        // }

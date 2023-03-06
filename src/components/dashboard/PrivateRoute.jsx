@@ -8,21 +8,3 @@ const PrivateRoute = () => {
     )
 };
 export default PrivateRoute;
-
-// const PrivateRoute = ({ component: Components, ...rest }) => {
-//     const navigate = useNavigate();
-//     const role = localStorage.getItem('student');
-//   return (
- 
-//     <Route
-//       {...rest}
-//       render={(props) => {
-//         return role === "Admin" ? (
-//           <Components {...props} />
-//         ) : (
-//           navigate("/login")
-//         );
-//       }}
-//     />
-//   );
-// };

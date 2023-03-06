@@ -4,3 +4,7 @@ export const API_STUDENTS = {
   EDIT_STUDENTS: "/v1/students",
   DELETE_STUDENTS: "/v1/students",
 };
+
+export const API_PROJECT = {
+
+};

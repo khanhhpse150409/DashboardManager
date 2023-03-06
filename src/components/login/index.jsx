@@ -1,9 +1,6 @@
 import {
-  AlipayCircleOutlined,
   LockOutlined,
-  TaobaoCircleOutlined,
   UserOutlined,
-  WeiboCircleOutlined,
 } from "@ant-design/icons";
 import {
   LoginForm,
@@ -14,8 +11,6 @@ import {
 import { Button } from 'antd';
 
   import React, {useState, useEffect} from "react";
-  import Dashboard from "../dashboard";
-  import firebase from 'firebase/app';
   import 'firebase/auth';
   import { authService } from "../../Service/authService";
   import { useNavigate } from "react-router-dom";
@@ -28,7 +23,6 @@ import { Button } from 'antd';
   };
   
   const Login = () => {
-    const [value, setValue] = useState('')
     const navigate = useNavigate();
       
     const signWithGoogle = async () => {
@@ -37,15 +31,13 @@ import { Button } from 'antd';
          if (role === "Admin") {
           navigate("/Dashboard"); 
         } else {
-          navigate("/Home"); 
-          console.log("Tôi là user");
-          
+          //sang trang home
+          navigate("/");       
         }
     }
     
     useEffect(() => {
       localStorage.clear();
-      // window.loaction.reload();
     })
     
     return (
