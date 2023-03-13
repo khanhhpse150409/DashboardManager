@@ -106,7 +106,7 @@ const ManagerProject = () => {
   return (
     <>
       {contextHolder}
-      <h6>List student</h6>
+      <h6>List project</h6>
       <ListStudent
         createColumns={createColumns}
         listDataStudent={listDataStudent}
