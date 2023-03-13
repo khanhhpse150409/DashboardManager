@@ -1,4 +1,4 @@
-import { CrownFilled, SmileFilled, TabletFilled } from "@ant-design/icons";
+import { CrownFilled, SmileFilled } from "@ant-design/icons";
 
 const defaultProps = {
   route: {
@@ -24,59 +24,20 @@ const defaultProps = {
             component: "./Welcome",
           },
           {
-            path: "/admin/sub-page2",
-            name: "Second page",
+            path: "/admin/project",
+            name: "Project Management",
             icon: <CrownFilled />,
             component: "./Welcome",
           },
           {
-            path: "/admin/sub-page3",
-            name: "Third page",
-            icon: <CrownFilled />,
-            component: "./Welcome",
-          },
-        ],
-      },
-      {
-        name: "List",
-        icon: <TabletFilled />,
-        path: "/list",
-        component: "./ListTableList",
-        routes: [
-          {
-            path: "/list/sub-page",
-            name: "List page",
-            icon: <CrownFilled />,
-            routes: [
-              {
-                path: "sub-sub-page1",
-                name: "Fist list page",
-                icon: <CrownFilled />,
-                component: "./Welcome",
-              },
-              {
-                path: "sub-sub-page2",
-                name: "Second list page",
-                icon: <CrownFilled />,
-                component: "./Welcome",
-              },
-              {
-                path: "sub-sub-page3",
-                name: "Third list page",
-                icon: <CrownFilled />,
-                component: "./Welcome",
-              },
-            ],
-          },
-          {
-            path: "/list/sub-page2",
-            name: "Secondary list page",
+            path: "/admin/category",
+            name: "Category Management",
             icon: <CrownFilled />,
             component: "./Welcome",
           },
           {
-            path: "/list/sub-page3",
-            name: "Third list page",
+            path: "/admin/major",
+            name: "Major Management",
             icon: <CrownFilled />,
             component: "./Welcome",
           },

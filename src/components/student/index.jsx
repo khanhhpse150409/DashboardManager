@@ -10,8 +10,8 @@ import ListStudent from "./listStudent";
 import { useState, useEffect } from "react";
 
 const STATUS_COLORS = {
-  active: "#31AFFE",
-  deactive: "#616887",
+  Active: "#31AFFE",
+  Deactive: "#616887",
 };
 const ManagerStudent = () => {
   const [listDataStudent, setListDataStudent] = useState(null);
@@ -74,6 +74,8 @@ const ManagerStudent = () => {
     {
       title: "Action",
       dataIndex: "student_id",
+      fixed: 'right',
+      width: 100,
       render: (value) => (
         <div>
           <EditOutlined onClick={openEdit(value)} />
@@ -100,6 +102,7 @@ const ManagerStudent = () => {
       .then((payload) => {
         if (payload.msg === "1 student delete") {
           openNotification("delete successful");
+          fetchListDataStudent();
           setCountDelete(countDelete + 1);
         } else {
           openNotification("delete failed");
@@ -114,8 +117,7 @@ const ManagerStudent = () => {
   const fetchListDataStudent = () => {
     listStudent()
       .then((payload) => {
-        setListDataStudent(payload.students.rows);
-        console.log(payload.students.rows);
+        setListDataStudent(payload.student.rows);
       })
       .catch((err) => {
         console.log("err", err);

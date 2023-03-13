@@ -1,4 +1,4 @@
-import { get, GATEWAY, put, deleteGW } from "../../Service/Service";
+import { get, GATEWAY, put } from "../../Service/Service";
 import { API_STUDENTS } from "../../Service/endpoint";
 
 export const listStudent = () => {
@@ -20,7 +20,7 @@ export const editStudent = (data) => {
 };
 
 export const deleteStudent = (id) => {
-  return deleteGW({ gw: GATEWAY.REACT_APP_API_URL })(
-    `${API_STUDENTS.DELETE_STUDENTS}/${id}`
+  return put({ gw: GATEWAY.REACT_APP_API_URL })(
+    `${API_STUDENTS.DELETE_STUDENTS}/delete?student_ids%5B0%5D=${id}`
   );
 };

@@ -10,17 +10,10 @@ import {
 } from "@ant-design/pro-components";
 import { Button } from 'antd';
 
-  import React, {useState, useEffect} from "react";
+  import React, { useEffect} from "react";
   import 'firebase/auth';
   import { authService } from "../../Service/authService";
   import { useNavigate } from "react-router-dom";
-  const iconStyles = {
-    marginInlineStart: '16px',
-    color: 'rgba(0, 0, 0, 0.2)',
-    fontSize: '24px',
-    verticalAlign: 'middle',
-    cursor: 'pointer',
-  };
   
   const Login = () => {
     const navigate = useNavigate();

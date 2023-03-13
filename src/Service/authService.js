@@ -1,7 +1,6 @@
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
-import jwt_decode from "jwt-decode";
 import firebaseConfig from "./firebaseConfig.js";
 
 firebase.initializeApp(firebaseConfig);
@@ -12,7 +11,6 @@ export const authService = {
     const result = await firebase.auth().signInWithPopup(provider);
     if (result.user) {
       const token = await result.user.getIdToken();
-      const decodedToken = jwt_decode(token);
       // Make a POST request to the loginGoogle API endpoint with the token
       const response = await fetch(
         "https://capstone-matching.herokuapp.com/api/v1/auth/login-google",
