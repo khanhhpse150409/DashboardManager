@@ -1,13 +1,26 @@
 import { get, GATEWAY } from "../../Service/Service";
-import { API_PROJECT, API_STUDENTS } from "../../Service/endpoint";
+import { API_STATISTIC } from "../../Service/endpoint";
 
-export const listProject = () => {
+export const getDataProjects = () => {
   return get({ gw: GATEWAY.REACT_APP_API_URL })(
-    `${API_PROJECT.LIST_PROJECTS}`
+    `${API_STATISTIC.STATISTIC_PROJECTS}`
   );
 };
-export const listStudent = () => {
+
+export const getDataFinishProjects = () => {
   return get({ gw: GATEWAY.REACT_APP_API_URL })(
-    `${API_STUDENTS.LIST_STUDENTS}`
+    `${API_STATISTIC.STATISTIC_FINISH_PROJECT}`
+  );
+};
+
+export const getDataAccounts = () => {
+  return get({ gw: GATEWAY.REACT_APP_API_URL })(
+    `${API_STATISTIC.STATISTIC_ACCOUNTS}`
+  );
+};
+
+export const getDataTransaction = () => {
+  return get({ gw: GATEWAY.REACT_APP_API_URL })(
+    `${API_STATISTIC.STATISTIC_TRANSACTION}`
   );
 };

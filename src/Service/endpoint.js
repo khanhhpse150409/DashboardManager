@@ -25,3 +25,10 @@ export const API_MAJOR = {
   EDIT_MAJOR: "/v1/majors",
   GET_MAJOR: "/v1/majors",
 };
+
+export const API_STATISTIC = {
+  STATISTIC_PROJECTS: "/v1/statistic/projects",
+  STATISTIC_FINISH_PROJECT: "/v1/statistic/finishProject",
+  STATISTIC_ACCOUNTS: "/v1/statistic/accounts",
+  STATISTIC_TRANSACTION: "/v1/statistic/transaction",
+};
