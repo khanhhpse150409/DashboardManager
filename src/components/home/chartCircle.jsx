@@ -6,12 +6,12 @@ const DemoPie = (dataChart) => {
   console.log("dataProjectFinish", dataChart);
   const data = [
     {
-      type: "Finished Project",
-      value: dataChart.dataProject?.all -  dataChart.dataProjectFinish?.all || 1,
-    },
-    {
       type: "Unfinished Project",
       value: dataChart.dataProjectFinish?.all || 1,
+    },
+    {
+      type: "Finished Project",
+      value: dataChart.dataProject?.all -  dataChart.dataProjectFinish?.all || 1,
     },
   ];
   const config = {
